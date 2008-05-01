@@ -1,0 +1,5 @@
+content	webnnel	chrome/webnnel/content/
+locale	webnnel	en-US	chrome/webnnel/locale/en-US/
+skin	webnnel	classic/1.0	chrome/webnnel/skin/
+overlay	chrome://browser/content/browser.xul	chrome://webnnel/content/firefoxOverlay.xul
+style	chrome://global/content/customizeToolbar.xul	chrome://webnnel/skin/overlay.css

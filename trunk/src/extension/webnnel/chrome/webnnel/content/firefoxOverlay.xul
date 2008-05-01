@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://webnnel/skin/overlay.css" type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://webnnel/locale/webnnel.dtd">
+
+<overlay id="webnnel-overlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="webnnel-strings" src="chrome://webnnel/locale/webnnel.properties"/>
+  </stringbundleset>
+  
+  <script>
+  <![CDATA[
+    var chromeWindow = window;
+    var chromeDocument = window.chromeDocument;
+    
+    /* Obtain reference to XPCOM object */
+    var Webnnel = Components.classes["@uid.csail.mit.edu/webnnel;1"] 
+                           .getService(Components.interfaces.nsISupports)
+                           .wrappedJSObject;
+    
+    var debug = Webnnel.debug;
+  ]]>
+  </script>
+  
+  <script src="overlay.js"/>
+  
+  <!-- Create a hot key to enable/disable toolbar -->
+  <keyset id = "mainKeyset">
+  	<key id = "webnnel-toggle"
+  	  keycode = "VK_F2"
+  		oncommand = "var toolbar = document.getElementById('ReadMagic-ToolBar'); toolbar.hidden = !toolbar.hidden;"/>
+  </keyset>
+  
+  <window id="main-window">
+      
+      <!-- Create a toolbar for Webnnel buttons and sliders -->
+      <toolbar
+      		 hidden = "true"
+           orient = "horizontal"
+           id = "ReadMagic-ToolBar"
+           toolbarname = "Webnnel Toolbar"
+           insertafter = "navigator-toolbox"
+           currentset = "webnnel-toolbar-commit">
+
+           <spacer width="7px"/>
+           
+           <image id="logo"/>                           
+           
+           <spacer width="2px"/>
+           
+           <textbox id="webnnel-toolbar-command" value=""/>
+           
+      </toolbar>
+  </window>
+
+</overlay>

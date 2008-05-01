@@ -1,0 +1,7 @@
+/* Styles for font slider bar */
+
+#logo{
+  list-style-image: url("chrome://webnnel/skin/webnnel-small.png");
+  width: 20px;
+  height: 15px;
+}
