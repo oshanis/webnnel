@@ -1,0 +1,16 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = PDEPluginCallback; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            CLASS = PMInkPDE; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {inkView = PMInkView; noInfo = NSTextField; }; 
+            SUPERCLASS = PMPrintingPDEPanel; 
+        }, 
+        {CLASS = PMInkView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {CLASS = PMPrintingPDEPanel; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = PMPrintingPDEPlugIn; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}

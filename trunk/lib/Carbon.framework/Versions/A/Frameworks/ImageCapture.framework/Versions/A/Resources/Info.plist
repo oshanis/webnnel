@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>ImageCapture</string>
+	<key>CFBundleGetInfoString</key>
+	<string>4.0, © Copyright 2000-2006 Apple Computer Inc., all rights reserved.</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.apple.ImageCapture</string>
+	<key>CFBundleName</key>
+	<string>ImageCapture</string>
+	<key>CFBundleShortVersionString</key>
+	<string>4.0</string>
+	<key>CFBundleVersion</key>
+	<string>5.0.0</string>
+	<key>CarbonLazyValues</key>
+	<dict>
+		<key>CodeFragmentManager</key>
+		<dict>
+			<key>ImageCapture</key>
+			<string>CFMPriv_ImageCapture</string>
+		</dict>
+		<key>Gestalt</key>
+		<dict>
+			<key>icav</key>
+			<string>65537</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

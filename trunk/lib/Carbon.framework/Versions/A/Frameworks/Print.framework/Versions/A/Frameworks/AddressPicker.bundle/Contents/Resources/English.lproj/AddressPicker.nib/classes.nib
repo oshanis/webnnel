@@ -1,0 +1,22 @@
+{
+    IBClasses = (
+        {CLASS = ABPeoplePickerView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {
+            CLASS = AddressPicker; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                myPanel = NSPanel; 
+                peoplePickerView = ABPeoplePickerView; 
+                toButton = NSButton; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }, 
+        {
+            ACTIONS = {putSelectionInSendTo = id; }; 
+            CLASS = FirstResponder; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

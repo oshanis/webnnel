@@ -1,0 +1,25 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                changeAllPopup = id; 
+                changeFirstPopup = id; 
+                changeFromRadio = id; 
+                changeRemainingPopup = id; 
+            }; 
+            CLASS = PMPaperFeedPDE; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                paperFeedAllPopup = NSPopUpButton; 
+                paperFeedFirstPopup = NSPopUpButton; 
+                paperFeedFromRadioGroup = NSMatrix; 
+                paperFeedRemainingPopup = NSPopUpButton; 
+                paperFeedRemainingTitleText = NSTextField; 
+                paperFeedView = NSView; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

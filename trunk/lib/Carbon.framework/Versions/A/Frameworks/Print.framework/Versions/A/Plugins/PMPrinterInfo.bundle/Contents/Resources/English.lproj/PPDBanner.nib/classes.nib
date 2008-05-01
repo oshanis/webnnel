@@ -1,0 +1,26 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NSObject; LANGUAGE = ObjC; }, 
+        {
+            ACTIONS = {uninstall = id; }; 
+            CLASS = PMBanner; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {bannerContents = NSView; firstKeySubview = NSView; lastKeySubview = NSView; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            CLASS = PPDBanner; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {searchField = NSSearchField; }; 
+            SUPERCLASS = PMBanner; 
+        }, 
+        {
+            CLASS = WebPageBanner; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {bannerContents = NSView; firstKeySubview = NSView; lastKeySubview = NSView; }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

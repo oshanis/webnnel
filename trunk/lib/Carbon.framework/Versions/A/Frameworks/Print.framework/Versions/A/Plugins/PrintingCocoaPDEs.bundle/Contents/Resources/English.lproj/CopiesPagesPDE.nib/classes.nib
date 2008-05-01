@@ -1,0 +1,39 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                collatedSelected = id; 
+                orientationSelected = id; 
+                pageRangeSelected = id; 
+                twoSidedSelected = id; 
+            }; 
+            CLASS = PMCopiesPagesPDE; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                "_alternateScaleLabel" = NSTextField; 
+                "_alternateScaleTextField" = NSTextField; 
+                "_collateCheckBox" = NSButton; 
+                "_copiesTextField" = NSTextField; 
+                "_copiesView" = NSView; 
+                "_fromPageTextBox" = NSTextField; 
+                "_orientationMatrix" = NSMatrix; 
+                "_orientationView" = NSView; 
+                "_pageRangeLabel" = NSTextField; 
+                "_pageRangeMatrix" = NSMatrix; 
+                "_pageRangeToLabel" = NSTextField; 
+                "_pageRangeView" = NSView; 
+                "_paperSizeInfoTextBox" = NSTextField; 
+                "_paperSizePopupButton" = NSPopUpButton; 
+                "_paperSizeView" = NSView; 
+                "_pdeView" = NSView; 
+                "_scaleTextField" = NSTextField; 
+                "_scaleView" = NSView; 
+                "_toPageTextBox" = NSTextField; 
+                "_twoSidedCheckBox" = NSButton; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

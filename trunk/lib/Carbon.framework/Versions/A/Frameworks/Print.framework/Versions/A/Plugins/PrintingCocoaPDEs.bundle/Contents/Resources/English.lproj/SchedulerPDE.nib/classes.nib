@@ -1,0 +1,21 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NSDatePicker; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
+        {CLASS = PDEPluginCallback; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = PMPrintingPDEPlugin; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {datePickerAction = id; radioAction = id; }; 
+            CLASS = PMSchedulerPDE; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                schedulerDatePickerText = NSDatePicker; 
+                schedulerPriorityPopup = NSPopUpButton; 
+                schedulerRadioGroup = NSMatrix; 
+                schedulerView = NSView; 
+            }; 
+            SUPERCLASS = PMPrintingPDEPlugin; 
+        }
+    ); 
+    IBVersion = 1; 
+}

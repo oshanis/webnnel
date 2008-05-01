@@ -1,0 +1,33 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = PMLayoutButtonCell; LANGUAGE = ObjC; SUPERCLASS = NSButtonCell; }, 
+        {CLASS = PMLayoutCustomView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {
+            ACTIONS = {
+                changeBorderPopup = id; 
+                changeDuplexPopup = id; 
+                changeLayoutRadio = id; 
+                changePagesPerSheetPopup = id; 
+                changeReverseOrientation = id; 
+            }; 
+            CLASS = PMLayoutPDE; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                borderPopup = NSPopUpButton; 
+                borderTitleText = NSTextField; 
+                duplexPopup = NSPopUpButton; 
+                duplexTitleText = NSTextField; 
+                layoutRadioGroup = NSMatrix; 
+                layoutTitleText = NSTextField; 
+                layoutView = NSView; 
+                pageCustomView = PMLayoutCustomView; 
+                pagesPerSheetPopup = NSPopUpButton; 
+                pagesPerSheetTitleText = NSTextField; 
+                reverseOrientationButton = NSButton; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

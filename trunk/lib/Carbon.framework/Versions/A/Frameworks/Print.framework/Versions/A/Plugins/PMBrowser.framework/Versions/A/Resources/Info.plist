@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>PMBrowser</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.apple.PMBrowser.framework</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>PMBrowser</string>
+	<key>CFBundlePackageType</key>
+	<string>FMWK</string>
+	<key>CFBundleShortVersionString</key>
+	<string>5.5</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>227.1</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 1995-2007, Apple Inc., All Rights Reserved.</string>
+	<key>PPD Search Directories</key>
+	<array>
+		<string>/System/Library/Printers/PPDs/Contents/Resources</string>
+		<string>/Library/Printers/PPDs/Contents/Resources</string>
+		<string>/usr/share/cups/model</string>
+	</array>
+	<key>cupsTypes</key>
+	<array>
+		<string>_ipp._tcp,_cups</string>
+	</array>
+	<key>ionaTypes</key>
+	<array>
+		<string>_printer._tcp.</string>
+		<string>_ipp._tcp.</string>
+		<string>_pdl-datastream._tcp.</string>
+		<string>_riousbprint._tcp.</string>
+		<string>_ipp-tls._tcp.</string>
+	</array>
+</dict>
+</plist>

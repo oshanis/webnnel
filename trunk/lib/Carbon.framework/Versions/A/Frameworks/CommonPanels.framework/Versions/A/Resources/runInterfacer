@@ -1,0 +1,164 @@
+#! /bin/sh
+# runInterfacer
+#
+# Required environment variables (must be set on entry to script)
+#     DERIVED_SOURCES_DIR - Derived sources dir (where Interfacer cache files will be put by default)
+#     COMPONENT_LIBRARY_NAME - Name of "framework" (in Interfacer sense)
+#
+# Optional environment variables
+#     USE_FRAMEWORK_INTERFACES - if YES, interface files will be used from $SOURCE/Interfaces instead of /AppleInternal
+#
+# Internal variables (can be overridden if set in environment but usually should not be)
+#     INTERFACER - path to Interfacer tool
+#     MASTER_INTERFACES_PATH - where to find the .i files
+#     CACHE_FOLDER - where Interfacer will put cache files
+#     HEADER_PATH
+#     PRIVATE_HEADER_PATH
+#     REZ_PATH
+#     PRIVATE_REZ_PATH
+#     EXPORTS_PATH
+#     UPPGLUE_PATH
+
+DERIVED_SOURCES_DIR="${DERIVED_FILES_DIR}"
+COMPONENT_LIBRARY_NAME="${PRODUCT_NAME}"
+USE_FRAMEWORK_INTERFACES=YES
+#MAA tried NO for above.. doesn't work
+IFS="
+"
+
+########################################################################
+# Check required environment variables
+    echo "    DERIVED_SOURCES_DIR = ${DERIVED_SOURCES_DIR}"
+    echo "    COMPONENT_LIBRARY_NAME = ${COMPONENT_LIBRARY_NAME}"
+
+if [ "z${DERIVED_SOURCES_DIR}" = "z" -o "z${COMPONENT_LIBRARY_NAME}" = "z" ] ; then
+    echo "$0: Environment variables DERIVED_SOURCES_DIR and COMPONENT_LIBRARY_NAME must be set before this script is run."
+    echo "    DERIVED_SOURCES_DIR = ${DERIVED_SOURCES_DIR}"
+    echo "    COMPONENT_LIBRARY_NAME = ${COMPONENT_LIBRARY_NAME}"
+    exit 1
+fi
+
+########################################################################
+# Basic settings
+if [ "z${INTERFACER}" = "z" ] ; then
+    INTERFACER="${APPLE_INTERNAL_TOOLS}/Interfacer"
+fi
+
+if [ "z${MAKEPSEUDOLIBRARY}" = "z" ] ; then
+    MAKEPSEUDOLIBRARY="${APPLE_INTERNAL_TOOLS}/MakePseudoLibrary"
+fi
+
+if [ "z${MASTER_INTERFACES_PATH}" = "z" ] ; then
+    MASTER_INTERFACES_PATH="${APPLE_INTERNAL_DIR}/Carbon/interfaces/"
+fi
+
+if [ "z${CACHE_FOLDER}" = "z" ] ; then
+    CACHE_FOLDER="${DERIVED_SOURCES_DIR}/InterfacerCache/"
+fi
+
+if [ "z${FRAMEWORK_INTERFACES_LOCATION}" = "z" ] ; then
+	FRAMEWORK_INTERFACES_LOCATION="${PROJECT_DIR}"
+fi
+
+########################################################################
+# Locations for Interfacer output (no trailing slashes)
+if [ "z${HEADER_PATH}" = "z" ] ; then
+    HEADER_PATH="${BUILT_PRODUCTS_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}"
+fi
+if [ "z${PRIVATE_HEADER_PATH}" = "z" ] ; then
+    PRIVATE_HEADER_PATH="${BUILT_PRODUCTS_DIR}/${PRIVATE_HEADERS_FOLDER_PATH}"
+fi
+
+if [ "z${REZ_PATH}" = "z" ] ; then
+    REZ_PATH="${HEADER_PATH}"
+fi
+if [ "z${PRIVATE_REZ_PATH}" = "z" ] ; then
+    PRIVATE_REZ_PATH="${PRIVATE_HEADER_PATH}"
+fi
+
+if [ "z${EXPORTS_PATH}" = "z" ] ; then
+    EXPORTS_PATH="${DERIVED_SOURCES_DIR}/ExportSets"
+fi
+
+if [ "z${UPPGLUE_PATH}" = "z" ] ; then
+    UPPGLUE_PATH="${DERIVED_SOURCES_DIR}/UPPGlue"
+fi
+
+if [ "z${COMPONENTGLUE_PATH}" = "z" ] ; then
+    COMPONENTGLUE_PATH="${DERIVED_SOURCES_DIR}/ComponentGlue"
+fi
+
+if [ "z${VECTORLIBGENERATEDFILE}" = "z" ] ; then
+	VECTORLIBGENERATEDFILE="${COMPONENT_LIBRARY_NAME}Vector.s"
+fi
+
+########################################################################
+# Do headers, rez files, and exports
+
+mkdir -p "${HEADER_PATH}"
+mkdir -p "${PRIVATE_HEADER_PATH}"
+mkdir -p "${REZ_PATH}"
+mkdir -p "${PRIVATE_REZ_PATH}"
+mkdir -p "${EXPORTS_PATH}"
+mkdir -p "${UPPGLUE_PATH}"
+mkdir -p "${COMPONENTGLUE_PATH}"
+
+### make symlnks
+cd "${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}"
+
+ln -s "Versions/${FRAMEWORK_VERSION}/Headers" Headers
+ln -s "Versions/${FRAMEWORK_VERSION}/PrivateHeaders" PrivateHeaders
+cd "${PROJECT_DIR}"
+
+### interface away
+if [ "z${USE_FRAMEWORK_INTERFACES}" = "zYES" ] ; then
+	if [ "z${RC_JASPER}" = "zYES" ] ; then
+		if [ "${ACTION}" = "install" ] ; then
+			"${INTERFACER}" -p -installMasterInterfaces "${INSTALL_ROOT}${MASTER_INTERFACES_PATH}" -frameworkInterfaces "${FRAMEWORK_INTERFACES_LOCATION}/" -masterInterfaces "${MASTER_INTERFACES_PATH}" -cacheFolder "${CACHE_FOLDER}" -framework "${COMPONENT_LIBRARY_NAME}" -c -rez -generated "c=${HEADER_PATH}/" -generatedPriv "c=${PRIVATE_HEADER_PATH}/" -generated "rez=${REZ_PATH}/" -generatedPriv "rez=${PRIVATE_REZ_PATH}/" -externalHeader "${RC_ProjectName}-${RC_ProjectSourceVersion}~${RC_ProjectBuildVersion}" -uppGlueC -generated "uppGlueC=${UPPGLUE_PATH}/" -generatedPriv "uppGlueC=${UPPGLUE_PATH}/" -componentGlueC -generated "componentGlueC=${COMPONENTGLUE_PATH}/" -generatedPriv "componentGlueC=${COMPONENTGLUE_PATH}/" -frameworkExports -generated "frameworkExports=${EXPORTS_PATH}/" -generatedPriv "frameworkExports=${EXPORTS_PATH}/"
+		else
+			"${INTERFACER}" -p -frameworkInterfaces "${FRAMEWORK_INTERFACES_LOCATION}/" -masterInterfaces "${MASTER_INTERFACES_PATH}" -cacheFolder "${CACHE_FOLDER}" -framework "${COMPONENT_LIBRARY_NAME}" -c -rez -generated "c=${HEADER_PATH}/" -generatedPriv "c=${PRIVATE_HEADER_PATH}/" -generated "rez=${REZ_PATH}/" -generatedPriv "rez=${PRIVATE_REZ_PATH}/" -externalHeader "${RC_ProjectName}-${RC_ProjectSourceVersion}~${RC_ProjectBuildVersion}" -uppGlueC -generated "uppGlueC=${UPPGLUE_PATH}/" -generatedPriv "uppGlueC=${UPPGLUE_PATH}/" -componentGlueC -generated "componentGlueC=${COMPONENTGLUE_PATH}/" -generatedPriv "componentGlueC=${COMPONENTGLUE_PATH}/" -frameworkExports -generated "frameworkExports=${EXPORTS_PATH}/" -generatedPriv "frameworkExports=${EXPORTS_PATH}/"
+		fi
+	else
+		if [ "${ACTION}" = "install" ] ; then
+			"${INTERFACER}" -p -installMasterInterfaces "${INSTALL_ROOT}${MASTER_INTERFACES_PATH}" -frameworkInterfaces "${FRAMEWORK_INTERFACES_LOCATION}/" -masterInterfaces "${MASTER_INTERFACES_PATH}" -cacheFolder "${CACHE_FOLDER}" -framework "${COMPONENT_LIBRARY_NAME}" -c -rez -generated "c=${HEADER_PATH}/" -generatedPriv "c=${PRIVATE_HEADER_PATH}/" -generated "rez=${REZ_PATH}/" -generatedPriv "rez=${PRIVATE_REZ_PATH}/" -uppGlueC -generated "uppGlueC=${UPPGLUE_PATH}/" -generatedPriv "uppGlueC=${UPPGLUE_PATH}/" -componentGlueC -generated "componentGlueC=${COMPONENTGLUE_PATH}/" -generatedPriv "componentGlueC=${COMPONENTGLUE_PATH}/" -frameworkExports -generated "frameworkExports=${EXPORTS_PATH}/" -generatedPriv "frameworkExports=${EXPORTS_PATH}/"
+		else
+			"${INTERFACER}" -p -frameworkInterfaces "${FRAMEWORK_INTERFACES_LOCATION}/" -masterInterfaces "${MASTER_INTERFACES_PATH}" -cacheFolder "${CACHE_FOLDER}" -framework "${COMPONENT_LIBRARY_NAME}" -c -rez -generated "c=${HEADER_PATH}/" -generatedPriv "c=${PRIVATE_HEADER_PATH}/" -generated "rez=${REZ_PATH}/" -generatedPriv "rez=${PRIVATE_REZ_PATH}/" -uppGlueC -generated "uppGlueC=${UPPGLUE_PATH}/" -generatedPriv "uppGlueC=${UPPGLUE_PATH}/" -componentGlueC -generated "componentGlueC=${COMPONENTGLUE_PATH}/" -generatedPriv "componentGlueC=${COMPONENTGLUE_PATH}/" -frameworkExports -generated "frameworkExports=${EXPORTS_PATH}/" -generatedPriv "frameworkExports=${EXPORTS_PATH}/"
+		fi
+	fi
+else
+	if [ "z${RC_JASPER}" = "zYES" ] ; then
+		if [ "${ACTION}" = "install" ] ; then
+			"${INTERFACER}" -p -installMasterInterfaces "${INSTALL_ROOT}${MASTER_INTERFACES_PATH}" -masterInterfaces "${MASTER_INTERFACES_PATH}" -cacheFolder "${CACHE_FOLDER}" -framework "${COMPONENT_LIBRARY_NAME}" -c -rez -generated "c=${HEADER_PATH}/" -generatedPriv "c=${PRIVATE_HEADER_PATH}/" -generated "rez=${REZ_PATH}/" -generatedPriv "rez=${PRIVATE_REZ_PATH}/" -externalHeader "${RC_ProjectName}-${RC_ProjectSourceVersion}~${RC_ProjectBuildVersion}" -uppGlueC -generated "uppGlueC=${UPPGLUE_PATH}/" -generatedPriv "uppGlueC=${UPPGLUE_PATH}/" -componentGlueC -generated "componentGlueC=${COMPONENTGLUE_PATH}/" -generatedPriv "componentGlueC=${COMPONENTGLUE_PATH}/" -frameworkExports -generated "frameworkExports=${EXPORTS_PATH}/" -generatedPriv "frameworkExports=${EXPORTS_PATH}/"
+		else
+			"${INTERFACER}" -p -masterInterfaces "${MASTER_INTERFACES_PATH}" -cacheFolder "${CACHE_FOLDER}" -framework "${COMPONENT_LIBRARY_NAME}" -c -rez -generated "c=${HEADER_PATH}/" -generatedPriv "c=${PRIVATE_HEADER_PATH}/" -generated "rez=${REZ_PATH}/" -generatedPriv "rez=${PRIVATE_REZ_PATH}/" -externalHeader "${RC_ProjectName}-${RC_ProjectSourceVersion}~${RC_ProjectBuildVersion}" -uppGlueC -generated "uppGlueC=${UPPGLUE_PATH}/" -generatedPriv "uppGlueC=${UPPGLUE_PATH}/" -componentGlueC -generated "componentGlueC=${COMPONENTGLUE_PATH}/" -generatedPriv "componentGlueC=${COMPONENTGLUE_PATH}/" -frameworkExports -generated "frameworkExports=${EXPORTS_PATH}/" -generatedPriv "frameworkExports=${EXPORTS_PATH}/"
+		fi
+	else
+		if [ "${ACTION}" = "install" ] ; then
+			"${INTERFACER}" -p -installMasterInterfaces "${INSTALL_ROOT}${MASTER_INTERFACES_PATH}" -masterInterfaces "${MASTER_INTERFACES_PATH}" -cacheFolder "${CACHE_FOLDER}" -framework "${COMPONENT_LIBRARY_NAME}" -c -rez -generated "c=${HEADER_PATH}/" -generatedPriv "c=${PRIVATE_HEADER_PATH}/" -generated "rez=${REZ_PATH}/" -generatedPriv "rez=${PRIVATE_REZ_PATH}/" -uppGlueC -generated "uppGlueC=${UPPGLUE_PATH}/" -generatedPriv "uppGlueC=${UPPGLUE_PATH}/" -componentGlueC -generated "componentGlueC=${COMPONENTGLUE_PATH}/" -generatedPriv "componentGlueC=${COMPONENTGLUE_PATH}/" -frameworkExports -generated "frameworkExports=${EXPORTS_PATH}/" -generatedPriv "frameworkExports=${EXPORTS_PATH}/"
+		else
+			"${INTERFACER}" -p -masterInterfaces "${MASTER_INTERFACES_PATH}" -cacheFolder "${CACHE_FOLDER}" -framework "${COMPONENT_LIBRARY_NAME}" -c -rez -generated "c=${HEADER_PATH}/" -generatedPriv "c=${PRIVATE_HEADER_PATH}/" -generated "rez=${REZ_PATH}/" -generatedPriv "rez=${PRIVATE_REZ_PATH}/" -uppGlueC -generated "uppGlueC=${UPPGLUE_PATH}/" -generatedPriv "uppGlueC=${UPPGLUE_PATH}/" -componentGlueC -generated "componentGlueC=${COMPONENTGLUE_PATH}/" -generatedPriv "componentGlueC=${COMPONENTGLUE_PATH}/" -frameworkExports -generated "frameworkExports=${EXPORTS_PATH}/" -generatedPriv "frameworkExports=${EXPORTS_PATH}/"
+		fi
+	fi
+fi
+
+##### combine export files
+
+_additional_exports_file="${INTERFACER_ADDITIONAL_EXPORTS_FILE}" 
+if [ ! -f "$_additional_exports_file"  ]; then
+	_additional_exports_file=""
+fi
+
+# Create the 32 and 64 bit export sets by sorting & removing duplicate lines from the various .exp files 
+#sort "${EXPORTS_PATH}/${COMPONENT_LIBRARY_NAME}.exp"  "${EXPORTS_PATH}/${COMPONENT_LIBRARY_NAME}Priv.exp" "${_additional_exports_file}" | grep -v "^#" | uniq > "${DERIVED_SOURCES_DIR}/${COMPONENT_LIBRARY_NAME}.exp" 
+#sort "${EXPORTS_PATH}/${COMPONENT_LIBRARY_NAME}64.exp"  "${EXPORTS_PATH}/${COMPONENT_LIBRARY_NAME}64Priv.exp" "${_additional_exports_file}" | grep -v "^#" | uniq > "${DERIVED_SOURCES_DIR}/${COMPONENT_LIBRARY_NAME}64.exp" 
+sort "${EXPORTS_PATH}/${COMPONENT_LIBRARY_NAME}.exp"  "${EXPORTS_PATH}/${COMPONENT_LIBRARY_NAME}Priv.exp" | grep -v "^#" | uniq > "${DERIVED_SOURCES_DIR}/${COMPONENT_LIBRARY_NAME}.exp" 
+sort "${EXPORTS_PATH}/${COMPONENT_LIBRARY_NAME}64.exp"  "${EXPORTS_PATH}/${COMPONENT_LIBRARY_NAME}64Priv.exp" | grep -v "^#" | uniq > "${DERIVED_SOURCES_DIR}/${COMPONENT_LIBRARY_NAME}64.exp" 
+
+##### create PsuedoLibrary
+#"${MAKEPSEUDOLIBRARY}" "${DERIVED_SOURCES_DIR}/${COMPONENT_LIBRARY_NAME}.exp" -p -strip -fragname CFMPriv_${COMPONENT_LIBRARY_NAME} -vector "${DERIVED_SOURCES_DIR}/${VECTORLIBGENERATEDFILE}" -dylibpath "${INSTALL_PATH}/${EXECUTABLE_PATH}"
+
+##### copy glue files somewhere so that the Compile Sources phase can find them
+ditto "${COMPONENTGLUE_PATH}" "${BUILT_PRODUCTS_DIR}/ComponentGlue"
+ditto "${UPPGLUE_PATH}" "${BUILT_PRODUCTS_DIR}/UPPGlue"
+#cp "${DERIVED_SOURCES_DIR}/${VECTORLIBGENERATEDFILE}" "${BUILT_PRODUCTS_DIR}"
+cp "${DERIVED_SOURCES_DIR}/${COMPONENT_LIBRARY_NAME}.exp" "${BUILT_PRODUCTS_DIR}"

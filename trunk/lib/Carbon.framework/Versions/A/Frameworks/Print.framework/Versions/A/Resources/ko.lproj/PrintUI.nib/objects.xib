@@ -1,0 +1,264 @@
+<?xml version="1.0" standalone="yes"?>
+<object class="NSIBObjectData">
+  <object name="rootObject" class="NSCustomObject" id="1">
+  </object>
+  <array count="24" name="allObjects">
+    <object class="IBCarbonCheckBox" id="563">
+      <ostype name="controlSignature">pass</ostype>
+      <int name="controlID">8</int>
+      <string name="title">나의 키체인에 이 암호 기억</string>
+      <string name="viewFrame">104 111 291 14 </string>
+      <string name="bounds">111 104 125 395 </string>
+    </object>
+    <object class="IBCarbonStaticText" id="556">
+      <ostype name="controlSignature">pass</ostype>
+      <int name="controlID">3</int>
+      <string name="title">다음으로 &quot;%s&quot; 프린터에 연결:</string>
+      <string name="viewFrame">20 20 375 23 </string>
+      <string name="bounds">20 20 43 395 </string>
+    </object>
+    <object class="IBCarbonEditText" id="560">
+      <ostype name="controlSignature">pass</ostype>
+      <int name="controlID">7</int>
+      <boolean name="isPassword">TRUE</boolean>
+      <boolean name="isUnicode">TRUE</boolean>
+      <boolean name="isSingleLine">TRUE</boolean>
+      <string name="viewFrame">107 84 285 16 </string>
+      <string name="bounds">84 107 100 392 </string>
+    </object>
+    <object class="IBCarbonStaticText" id="551">
+      <ostype name="controlSignature">pdlg</ostype>
+      <int name="controlID">5</int>
+      <boolean name="hidden">TRUE</boolean>
+      <string name="title">진행 중인 페이지:</string>
+      <string name="viewFrame">20 20 110 16 </string>
+      <string name="bounds">20 20 36 130 </string>
+    </object>
+    <object class="IBCarbonButton" id="562">
+      <ostype name="controlSignature">pass</ostype>
+      <int name="controlID">1</int>
+      <ostype name="command">ok  </ostype>
+      <int name="buttonType">1</int>
+      <string name="title">승인</string>
+      <string name="viewFrame">325 145 70 20 </string>
+      <string name="bounds">145 325 165 395 </string>
+    </object>
+    <object class="IBCarbonEditText" id="559">
+      <ostype name="controlSignature">pass</ostype>
+      <int name="controlID">5</int>
+      <boolean name="isUnicode">TRUE</boolean>
+      <boolean name="isSingleLine">TRUE</boolean>
+      <string name="viewFrame">107 54 285 16 </string>
+      <string name="bounds">54 107 70 392 </string>
+    </object>
+    <object class="IBCarbonRootControl" id="555">
+      <string name="viewFrame">0 0 415 185 </string>
+      <array count="8" name="subviews">
+        <reference idRef="556"/>
+        <object class="IBCarbonStaticText" id="557">
+          <ostype name="controlSignature">pass</ostype>
+          <int name="controlID">4</int>
+          <string name="title">이름:</string>
+          <int name="justification">-1</int>
+          <string name="viewFrame">20 53 76 16 </string>
+          <string name="bounds">53 20 69 96 </string>
+        </object>
+        <object class="IBCarbonStaticText" id="558">
+          <ostype name="controlSignature">pass</ostype>
+          <int name="controlID">6</int>
+          <string name="title">암호:</string>
+          <int name="justification">-1</int>
+          <string name="viewFrame">20 83 76 16 </string>
+          <string name="bounds">83 20 99 96 </string>
+        </object>
+        <reference idRef="559"/>
+        <reference idRef="560"/>
+        <object class="IBCarbonButton" id="561">
+          <ostype name="controlSignature">pass</ostype>
+          <int name="controlID">2</int>
+          <ostype name="command">not!</ostype>
+          <int name="buttonType">2</int>
+          <string name="title">취소</string>
+          <string name="viewFrame">243 145 70 20 </string>
+          <string name="bounds">145 243 165 313 </string>
+        </object>
+        <reference idRef="562"/>
+        <reference idRef="563"/>
+      </array>
+      <string name="bounds">0 0 185 415 </string>
+    </object>
+    <object class="IBCarbonButton" id="344">
+      <ostype name="controlSignature">pdlg</ostype>
+      <int name="controlID">1</int>
+      <ostype name="command">not!</ostype>
+      <int name="buttonType">2</int>
+      <string name="title">취소</string>
+      <string name="viewFrame">231 80 70 20 </string>
+      <string name="bounds">80 231 100 301 </string>
+    </object>
+    <object class="IBCarbonRootControl" id="343">
+      <string name="viewFrame">0 0 321 120 </string>
+      <array count="5" name="subviews">
+        <reference idRef="344"/>
+        <object class="IBCarbonProgressBar" id="345">
+          <ostype name="controlSignature">pdlg</ostype>
+          <int name="controlID">3</int>
+          <boolean name="indeterminate">FALSE</boolean>
+          <string name="viewFrame">19 43 282 19 </string>
+          <string name="bounds">43 19 62 301 </string>
+        </object>
+        <object class="IBCarbonStaticText" id="509">
+          <ostype name="controlSignature">pdlg</ostype>
+          <int name="controlID">4</int>
+          <boolean name="hidden">TRUE</boolean>
+          <string name="title">프린트 중인 페이지:</string>
+          <string name="viewFrame">20 20 122 16 </string>
+          <string name="bounds">20 20 36 142 </string>
+        </object>
+        <object class="IBCarbonStaticText" id="552">
+          <ostype name="controlSignature">pdlg</ostype>
+          <int name="controlID">2</int>
+          <int name="justification">-2</int>
+          <string name="viewFrame">145 20 66 16 </string>
+          <string name="bounds">20 145 36 211 </string>
+        </object>
+        <object class="IBCarbonStaticText" id="553">
+          <ostype name="controlSignature">pdlg</ostype>
+          <int name="controlID">5</int>
+          <boolean name="hidden">TRUE</boolean>
+          <string name="title">진행 중인 페이지:</string>
+          <string name="viewFrame">20 20 110 16 </string>
+          <string name="bounds">20 20 36 130 </string>
+        </object>
+      </array>
+      <string name="bounds">0 0 120 321 </string>
+    </object>
+    <reference idRef="509"/>
+    <object class="IBCarbonProgressBar" id="350">
+      <ostype name="controlSignature">pdlg</ostype>
+      <int name="controlID">3</int>
+      <boolean name="indeterminate">FALSE</boolean>
+      <string name="viewFrame">19 43 282 19 </string>
+      <string name="bounds">43 19 62 301 </string>
+    </object>
+    <reference idRef="558"/>
+    <object class="IBCarbonStaticText" id="351">
+      <ostype name="controlSignature">pdlg</ostype>
+      <int name="controlID">2</int>
+      <int name="justification">-2</int>
+      <string name="viewFrame">146 20 66 16 </string>
+      <string name="bounds">20 146 36 212 </string>
+    </object>
+    <reference idRef="552"/>
+    <object class="IBCarbonWindow" id="342">
+      <boolean name="hasCloseBox">TRUE</boolean>
+      <boolean name="hasHorizontalZoom">TRUE</boolean>
+      <boolean name="hasVerticalZoom">TRUE</boolean>
+      <boolean name="receiveUpdates">FALSE</boolean>
+      <boolean name="isResizable">FALSE</boolean>
+      <boolean name="compositing">TRUE</boolean>
+      <int name="carbonWindowClass">4</int>
+      <int name="windowPosition">1</int>
+      <string name="title">프린트 중</string>
+      <reference name="rootControl" idRef="343"/>
+      <string name="windowRect">795 45 915 366 </string>
+      <string name="ScreenRectAtEncodeTime">0 0 768 1024 </string>
+    </object>
+    <object class="IBCarbonStaticText" id="510">
+      <ostype name="controlSignature">pdlg</ostype>
+      <int name="controlID">4</int>
+      <boolean name="hidden">TRUE</boolean>
+      <string name="title">프린트 중인 페이지:</string>
+      <string name="viewFrame">20 20 123 16 </string>
+      <string name="bounds">20 20 36 143 </string>
+    </object>
+    <reference idRef="345"/>
+    <reference idRef="553"/>
+    <object class="IBCarbonWindow" id="554">
+      <boolean name="hasCloseBox">TRUE</boolean>
+      <boolean name="hasHorizontalZoom">TRUE</boolean>
+      <boolean name="hasVerticalZoom">TRUE</boolean>
+      <boolean name="receiveUpdates">FALSE</boolean>
+      <boolean name="isResizable">FALSE</boolean>
+      <boolean name="compositing">TRUE</boolean>
+      <int name="carbonWindowClass">4</int>
+      <int name="windowPosition">7</int>
+      <string name="title"></string>
+      <reference name="rootControl" idRef="555"/>
+      <string name="windowRect">148 501 333 916 </string>
+      <string name="ScreenRectAtEncodeTime">0 0 768 1024 </string>
+    </object>
+    <object class="IBCarbonRootControl" id="347">
+      <string name="viewFrame">0 0 321 120 </string>
+      <array count="5" name="subviews">
+        <object class="IBCarbonButton" id="348">
+          <ostype name="controlSignature">pdlg</ostype>
+          <int name="controlID">1</int>
+          <ostype name="command">not!</ostype>
+          <int name="buttonType">2</int>
+          <string name="title">취소</string>
+          <string name="viewFrame">231 80 70 20 </string>
+          <string name="bounds">80 231 100 301 </string>
+        </object>
+        <reference idRef="350"/>
+        <reference idRef="510"/>
+        <reference idRef="351"/>
+        <reference idRef="551"/>
+      </array>
+      <string name="bounds">0 0 120 321 </string>
+    </object>
+    <reference idRef="557"/>
+    <object class="IBCarbonWindow" id="349">
+      <boolean name="receiveUpdates">FALSE</boolean>
+      <boolean name="isResizable">FALSE</boolean>
+      <boolean name="compositing">TRUE</boolean>
+      <boolean name="doesNotCycle">TRUE</boolean>
+      <int name="carbonWindowClass">11</int>
+      <int name="windowPosition">1</int>
+      <string name="title">프린트 중</string>
+      <reference name="rootControl" idRef="347"/>
+      <string name="windowRect">153 209 273 530 </string>
+      <string name="ScreenRectAtEncodeTime">0 0 768 1024 </string>
+    </object>
+    <reference idRef="348"/>
+    <reference idRef="561"/>
+  </array>
+  <array count="24" name="allParents">
+    <reference idRef="555"/>
+    <reference idRef="555"/>
+    <reference idRef="555"/>
+    <reference idRef="347"/>
+    <reference idRef="555"/>
+    <reference idRef="555"/>
+    <reference idRef="554"/>
+    <reference idRef="343"/>
+    <reference idRef="342"/>
+    <reference idRef="343"/>
+    <reference idRef="347"/>
+    <reference idRef="555"/>
+    <reference idRef="347"/>
+    <reference idRef="343"/>
+    <reference idRef="1"/>
+    <reference idRef="347"/>
+    <reference idRef="343"/>
+    <reference idRef="343"/>
+    <reference idRef="1"/>
+    <reference idRef="349"/>
+    <reference idRef="555"/>
+    <reference idRef="1"/>
+    <reference idRef="347"/>
+    <reference idRef="555"/>
+  </array>
+  <dictionary count="4" name="nameTable">
+    <string>File&apos;s Owner</string>
+    <reference idRef="1"/>
+    <string>Password Dialog</string>
+    <reference idRef="554"/>
+    <string>StatusDialog</string>
+    <reference idRef="342"/>
+    <string>StatusSheetDialog</string>
+    <reference idRef="349"/>
+  </dictionary>
+  <string name="targetFramework">IBCarbonFramework</string>
+  <unsigned_int name="nextObjectID">600</unsigned_int>
+</object>

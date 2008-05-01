@@ -1,0 +1,31 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            CLASS = PPDFilterArrayController; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSArrayController; 
+        }, 
+        {CLASS = PPDPopUpButton; LANGUAGE = ObjC; SUPERCLASS = NSPopUpButton; }, 
+        {
+            ACTIONS = {driverChanged = id; }; 
+            CLASS = PrinterInspector; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                "_driversPopup" = PPDPopUpButton; 
+                "_driversScroller" = NSScrollView; 
+                "_driversTable" = NSTableView; 
+                "_ppdsController" = NSArrayController; 
+                "_printerInspector" = NSBox; 
+                "_printerLocation" = NSTextField; 
+                "_printerName" = NSTextField; 
+                "_printerText" = NSTextField; 
+                "_progressIndicator" = NSProgressIndicator; 
+                "_softwareUpdateBox" = NSBox; 
+                "_softwareUpdateView" = NSTextView; 
+            }; 
+            SUPERCLASS = NSView; 
+        }
+    ); 
+    IBVersion = 1; 
+}
