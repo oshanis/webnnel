@@ -1,0 +1,36 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NSLevelIndicator; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
+        {CLASS = NSSegmentedControl; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
+        {
+            ACTIONS = {
+                cancel = id; 
+                createNewPaperSize = id; 
+                duplicateSelectedPageSize = id; 
+                ok = id; 
+                removeSelectedPageSize = id; 
+                savePageSizes = id; 
+                showHelp = id; 
+            }; 
+            CLASS = PMCustomPageSizeWindowController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                bottomMarginTextField = NSTextField; 
+                cancelButton = NSButton; 
+                customPageSizesTableView = NSTableView; 
+                helpButton = NSButton; 
+                leftMarginTextField = NSTextField; 
+                okButton = NSButton; 
+                pageHeightTextField = NSTextField; 
+                pageSizeArrayController = NSArrayController; 
+                pageWidthTextField = NSTextField; 
+                printerPopUpButton = NSPopUpButton; 
+                rightMarginTextField = NSTextField; 
+                topMarginTextField = NSTextField; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

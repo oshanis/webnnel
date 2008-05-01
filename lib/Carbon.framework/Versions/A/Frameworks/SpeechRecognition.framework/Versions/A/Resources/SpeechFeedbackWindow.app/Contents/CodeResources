@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>files</key>
+	<dict>
+		<key>Resources/Base (D-2).tif</key>
+		<data>
+		5ZKz+wJUn/d2Mm+6Ams7JeODoXU=
+		</data>
+		<key>Resources/ButtonDown (D-2).tif</key>
+		<data>
+		A1lPwcMJVdv+2RfHFFa0QdsWRxA=
+		</data>
+		<key>Resources/DockBase (D-3).tif</key>
+		<data>
+		Q8lJuAGfH5NqdI2auEKzrCfCUz0=
+		</data>
+		<key>Resources/DockHiLite (D-3).tiff</key>
+		<data>
+		oppwCTeQGB6KCs5fDh3txQvcCE4=
+		</data>
+		<key>Resources/DockMeter1 (D-3).tif</key>
+		<data>
+		b95SNV5kJ3PzD9btIlm/QAfs5P8=
+		</data>
+		<key>Resources/DockMeter2 (D-3).tif</key>
+		<data>
+		W0msLIaCgVlENmQmVKN+B8LLalo=
+		</data>
+		<key>Resources/DockMeter3 (D-3).tif</key>
+		<data>
+		C26k6Y45NxaCYuEQZMUwsLXrv2c=
+		</data>
+		<key>Resources/DockMeter4 (D-3).tif</key>
+		<data>
+		HecVwp9nowqO54ltLO6osolm9q0=
+		</data>
+		<key>Resources/DockMic (D-3).tif</key>
+		<data>
+		Rb9EW76/mgyM3Bwq9tw6SytS1p8=
+		</data>
+		<key>Resources/DockMicAtt1 (D-3).tif</key>
+		<data>
+		jG/wS2P2TfKHS+QTQIDs+oXRTRo=
+		</data>
+		<key>Resources/DockMicAtt2 (D-3).tif</key>
+		<data>
+		7kdBeEqE4BC3OAv5zk5s3spxQd4=
+		</data>
+		<key>Resources/DockMicAtt3 (D-3).tif</key>
+		<data>
+		LrKloV2Cm4KooIxIIPqTK1HIuSs=
+		</data>
+		<key>Resources/DockSpeaker (D-3).tif</key>
+		<data>
+		j1tPSYt72AeY4zkueCu7CmfShxI=
+		</data>
+		<key>Resources/English.lproj/DefaultFeedbackViewPlugin.nib/classes.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0V4knafAfhVn/tt+1u9vPflki6w=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/English.lproj/DefaultFeedbackViewPlugin.nib/info.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			1ZT+6ToFHbLMHtSUlaj0hAPvsKo=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/English.lproj/DefaultFeedbackViewPlugin.nib/keyedobjects.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			37twA5lWYlBwcbFKnHtkYYRnFQk=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/English.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9gBnQsAxc1oruhFGS26p3LsYlUI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/English.lproj/SpeechFeedbackWindow.nib/classes.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			pxcUMGm2k0ZZ4ylFB2LNg5Zt2k0=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/English.lproj/SpeechFeedbackWindow.nib/info.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			F8uvVNoDIPVTu/PF6JexQKH6RdE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/English.lproj/SpeechFeedbackWindow.nib/keyedobjects.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LkoSc7q9wNmldubEbm+gioDdWoE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/HiLiteOverlay (D-2).tiff</key>
+		<data>
+		VLzlGWw+RBOxAAGwHRyIXT+z6nE=
+		</data>
+		<key>Resources/Meter1 (D-2).tif</key>
+		<data>
+		z2Z9JaB4onq7xjM3UhJS87e5B7o=
+		</data>
+		<key>Resources/Meter2 (D-2).tif</key>
+		<data>
+		UPgYTFWjboH7JyLg95+lvFcJKYI=
+		</data>
+		<key>Resources/Meter3 (D-2).tif</key>
+		<data>
+		weVoxZiC6YdUeqSwqIWcfmHWxf4=
+		</data>
+		<key>Resources/Meter4 (D-2).tif</key>
+		<data>
+		fwj3txXDcF6M68eYGxyZrVDoEGQ=
+		</data>
+		<key>Resources/MicAttending1 (D-2).tif</key>
+		<data>
+		G4CjDg0oeuZJSjEbWmJFLifD3LA=
+		</data>
+		<key>Resources/MicAttending2 (D-2).tif</key>
+		<data>
+		lSm6Arr2elfSkMTNpVz7NXOPj+4=
+		</data>
+		<key>Resources/MicAttending3 (D-2).tif</key>
+		<data>
+		bzfU5I/UXGZ2ERAqJVueKya3zDY=
+		</data>
+		<key>Resources/MicFailed (D-2).tif</key>
+		<data>
+		Bhm0zDfHHVPNU3l8pwjPpjohpnw=
+		</data>
+		<key>Resources/MicIdle (D-2).tif</key>
+		<data>
+		qG7/BnQGMAYhc/goJcJ1OKPD7yA=
+		</data>
+		<key>Resources/Single Click.aiff</key>
+		<data>
+		QmBCsSBL/DS6UTMS/K7W0YBZE4g=
+		</data>
+		<key>Resources/Speaker (D-2).tif</key>
+		<data>
+		WIAe2ZUK/pvkEXd6WixAecWrhIA=
+		</data>
+		<key>Resources/Whit.aiff</key>
+		<data>
+		M8fHZtRhHenhxkdMVZkDbmMl/6E=
+		</data>
+		<key>version.plist</key>
+		<data>
+		wmwZr24Q+PzqBGHSOmPaEPahq5c=
+		</data>
+	</dict>
+	<key>rules</key>
+	<dict>
+		<key>^Resources/</key>
+		<true/>
+		<key>^Resources/.*\.lproj/</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>10</real>
+		</dict>
+		<key>^Resources/.*\.lproj/locversion.plist$</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>30</real>
+		</dict>
+		<key>^Resources/.*\.nib/classes\.nib$</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>20</real>
+		</dict>
+		<key>^Resources/.*\.nib/data\.dependency$</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>20</real>
+		</dict>
+		<key>^Resources/.*\.nib/info\.nib$</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>20</real>
+		</dict>
+		<key>^Resources/English\.lproj/</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>20</real>
+		</dict>
+		<key>^version.plist$</key>
+		<true/>
+	</dict>
+</dict>
+</plist>

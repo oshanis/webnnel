@@ -1,0 +1,22 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            CLASS = PMFilteringArrayController; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSArrayController; 
+        }, 
+        {
+            ACTIONS = {cancel = id; filter = id; ok = id; }; 
+            CLASS = PMProfileBrowserController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                "_profileItemsTableView" = NSTableView; 
+                "_profilesArrayController" = PMFilteringArrayController; 
+                "_searchField" = NSSearchField; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

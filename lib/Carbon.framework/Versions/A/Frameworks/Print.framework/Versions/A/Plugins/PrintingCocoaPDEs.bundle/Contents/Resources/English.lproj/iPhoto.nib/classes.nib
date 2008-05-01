@@ -1,0 +1,18 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = PDEPluginCallback; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = PMPrintingPDEPlugin; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            CLASS = PMiPhotoPDE; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                "_accessoryView" = NSView; 
+                "_iPhotoPDEView" = NSView; 
+                "_thumbnailView" = NSView; 
+            }; 
+            SUPERCLASS = PMPrintingPDEPlugin; 
+        }
+    ); 
+    IBVersion = 1; 
+}

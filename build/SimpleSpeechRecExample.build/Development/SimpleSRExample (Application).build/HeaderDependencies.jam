@@ -1,0 +1,7 @@
+rule DefineHeaderDependencies
+{
+	INCLUDES "main.c" : "/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h" ;
+}
+
+DefineHeaderDependencies "<SimpleSpeechRecExample>SimpleSpeechRecExample.app" ;
+

@@ -1,0 +1,29 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {changePaperSize = id; changePrinter = id; }; 
+            CLASS = PMPageAttributes; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                orientationMatrix = NSMatrix; 
+                pageAttributesView = NSView; 
+                paperSizePopupButton = NSPopUpButton; 
+                paperSizeTextField = NSTextField; 
+                printerModelTextField = NSTextField; 
+                printerPopUpHandler = PMPrinterPopUpHandler; 
+                printerPopupButton = NSPopUpButton; 
+                scalingTextField = NSTextField; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {changePrinter = id; }; 
+            CLASS = PMPrinterPopUpHandler; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {printerPopUpButton = NSPopUpButton; }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

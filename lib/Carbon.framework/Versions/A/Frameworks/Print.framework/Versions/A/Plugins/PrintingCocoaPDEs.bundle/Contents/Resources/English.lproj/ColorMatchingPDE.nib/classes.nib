@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IBClasses</key>
+	<array>
+		<dict>
+			<key>CLASS</key>
+			<string>PMPrintingPDEPanel</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>automaticProfileMenuAction</key>
+				<string>id</string>
+				<key>matchingMethodRadioAction</key>
+				<string>id</string>
+				<key>otherProfilesMenuAction</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>PMColorMatchingPDE</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>_colorMatchingView</key>
+				<string>NSView</string>
+				<key>_colorSyncMatchingButtonCell</key>
+				<string>NSButtonCell</string>
+				<key>_matchingMethodMatrix</key>
+				<string>NSMatrix</string>
+				<key>_profileInfoText</key>
+				<string>NSTextField</string>
+				<key>_profilePopupLabel</key>
+				<string>NSTextField</string>
+				<key>_profilePopupMenu</key>
+				<string>NSPopUpButton</string>
+				<key>_vendorMatchingButtonCell</key>
+				<string>NSButtonCell</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>PMPrintingPDEPanel</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>FirstResponder</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+	</array>
+	<key>IBVersion</key>
+	<string>1</string>
+</dict>
+</plist>

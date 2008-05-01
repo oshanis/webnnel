@@ -1,0 +1,13 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {collapseAll = id; expandAll = id; }; 
+            CLASS = PMSummaryPDE; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {summaryOutlineView = NSOutlineView; summaryView = NSView; }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

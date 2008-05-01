@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>PMPrinterInfo</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.apple.print.getinfo.private</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>PMPrinterInfo</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>227</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 1995-2007, Apple Inc., All Rights Reserved.</string>
+	<key>NSMainNibFile</key>
+	<string>PrinterInfo</string>
+	<key>NSPrincipalClass</key>
+	<string>PMPrinterInfoWindowController</string>
+	<key>PPD Search Directories</key>
+	<array>
+		<string>/System/Library/Printers/PPDs/Contents/Resources</string>
+		<string>/Library/Printers/PPDs/Contents/Resources</string>
+		<string>/usr/share/cups/model</string>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,22 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = PDEPluginCallback; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {radioAction = id; }; 
+            CLASS = PMCoverPagePDE; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                coverPageBillingInfoText = NSTextField; 
+                coverPageBillingInfoTitle = NSTextField; 
+                coverPageRadioGroup = NSMatrix; 
+                coverPageTypePopup = NSPopUpButton; 
+                coverPageTypeTitle = NSTextField; 
+                coverPageView = NSView; 
+            }; 
+            SUPERCLASS = PMPrintingPDEPlugin; 
+        }, 
+        {CLASS = PMPrintingPDEPlugin; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}

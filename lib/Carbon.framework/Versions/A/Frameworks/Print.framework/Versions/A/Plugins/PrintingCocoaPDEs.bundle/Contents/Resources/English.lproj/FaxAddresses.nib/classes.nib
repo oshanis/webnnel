@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IBClasses</key>
+	<array>
+		<dict>
+			<key>CLASS</key>
+			<string>NSTokenField</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSTextField</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>FirstResponder</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>showAddressPicker</key>
+				<string>id</string>
+				<key>useCoverPageButtonHit</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>PMFaxAddresses</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>dialingPrefixTextField</key>
+				<string>NSTextField</string>
+				<key>faxAddressesView</key>
+				<string>NSView</string>
+				<key>faxMessageTextField</key>
+				<string>NSTextField</string>
+				<key>faxSubjectTextField</key>
+				<string>NSTextField</string>
+				<key>faxToTokenField</key>
+				<string>NSTokenField</string>
+				<key>faxUseCoverPageButton</key>
+				<string>NSButton</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>PMPrintingPDEPanel</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>PMPrintingPDEPanel</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+	</array>
+	<key>IBVersion</key>
+	<string>1</string>
+</dict>
+</plist>

@@ -1,0 +1,61 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = PMCarbonPDEView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {
+            CLASS = PMPDEController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                "_pdePopupButton" = NSPopUpButton; 
+                "_pdeView" = NSView; 
+                "_printWindowController" = PMPrintWindowController; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            CLASS = PMPDFServices; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                "_pdfServicesPopup" = NSPopUpButton; 
+                "_printWindowController" = PMPrintWindowController; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {deletePreset = id; renamePreset = id; saveNewPreset = id; savePreset = id; }; 
+            CLASS = PMPresetsPopupController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                "_presetsPopupButton" = NSPopUpButton; 
+                "_printWindowController" = PMPrintWindowController; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {doCancel = id; doHelp = id; doPageSetup = id; switchPDE = id; }; 
+            CLASS = PMPrintWindowController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                "_cancelButton" = NSButton; 
+                "_helpButton" = NSButton; 
+                "_pdeController" = PMPDEController; 
+                "_pdePopup" = NSPopUpButton; 
+                "_pdeView" = NSView; 
+                "_printButton" = NSButton; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }, 
+        {
+            ACTIONS = {addPrinter = id; }; 
+            CLASS = PMPrinterPopupController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                "_printWindowController" = PMPrintWindowController; 
+                "_printerPopupButton" = NSPopUpButton; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = PMPrintingWindow; LANGUAGE = ObjC; SUPERCLASS = NSWindow; }
+    ); 
+    IBVersion = 1; 
+}

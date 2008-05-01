@@ -1,0 +1,16 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {cancel = id; createNewWorkflowItem = id; deleteWorkflowItem = id; ok = id; }; 
+            CLASS = PMWorkflowItemsWindowController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                workflowItemsArrayController = NSArrayController; 
+                workflowItemsTableView = NSTableView; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

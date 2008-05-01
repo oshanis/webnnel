@@ -1,0 +1,13 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {acceptResumeOnPageSheet = id; closeResumeOnPageSheet = id; }; 
+            CLASS = ResumeOnPage; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {resumeOnPageNumText = NSTextField; resumeOnPageSheet = NSPanel; }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

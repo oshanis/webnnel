@@ -1,0 +1,21 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NSDatePicker; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
+        {CLASS = PDEPluginCallback; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {radioActionDialingMode = id; radioActionSound = id; }; 
+            CLASS = PMFaxModemPDE; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                dialToneWaitButton = NSButton; 
+                dialingModeRadioGroup = NSMatrix; 
+                faxModemView = NSView; 
+                soundRadioGroup = NSMatrix; 
+            }; 
+            SUPERCLASS = PMPrintingPDEPlugin; 
+        }, 
+        {CLASS = PMPrintingPDEPlugin; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}
