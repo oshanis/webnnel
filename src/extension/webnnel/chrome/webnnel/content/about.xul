@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE dialog SYSTEM "chrome://webnnel/locale/about.dtd">
+<dialog title="&about; Webnnel" orient="vertical" autostretch="always" onload="sizeToContent()" buttons="accept" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<!-- Original template by Jed Brown -->
+
+<groupbox align="center" orient="horizontal">
+<vbox>
+  <text value="Webnnel" style="font-weight: bold; font-size: x-large;"/>
+  <text value="&version; 0.01"/>
+  
+  <separator class="thin"/>
+  
+  <text value="&createdBy;" style="font-weight: bold;"/>
+  <text value="Chen-Hsiang Yu and Oshani Seneviratne"/>
+  <separator class="thin"/>
+      <text value="&homepage;" style="font-weight: bold;"/>
+    <text value="http://people.csail.mit.edu/chyu/uid/webnnel/index.html"
+          class="url"
+        onclick="window.open('http://people.csail.mit.edu/chyu/uid/webnnel/index.html'); window.close();"/>
+  <separator class="thin"/>
+</vbox>
+</groupbox>
+
+</dialog>
