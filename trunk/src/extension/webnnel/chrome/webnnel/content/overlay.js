@@ -46,44 +46,109 @@ var channels = [
 
 function cmdParser(cmd){
 	
-  if(cmd == "webnnel"){
-    goWebnnel();
-  }else if(cmd == "grid mode"){
-    gridMode();
-  }else if(cmd == "frame mode"){
-    frameMode();
-  }else if(cmd == "left"){
-  	left();
-  }else if(cmd == "right"){
-  	right();
-  }else if(cmd == "back"){
-  	goBack();
-  }else if(cmd == "next"){
-    goNext();
-  }else if(cmd == "homepage"){
-    homepage();
-  }else if(cmd == "scroll up"){
-    scrollUP();
-  }else if(cmd == "scroll down"){
-    scrollDown();
-  }else if(cmd == "clean page"){
-    cleanPage();
-  }else if(cmd == "undo"){
-  	undo_cleanPage();
-  }else if(cmd == "yahoo"){
-    Yahoo();    
-    var command = document.getElementById("webnnel-toolbar-command");
-    command.focus();
-  }else if(cmd == "cnn"){
-  	CNN();
-  }else if(cmd == "channel 5"){
-    content.document.location = channels[5];
-  }else if(cmd == "one clap"){
-    oneClap();
-  }else if(cmd == "two clap"){
-    twoClap();
+	var tokens = cmd.split(" ");
+	
+	switch(tokens[0]){
+		/********************************************************
+		 * Navigation Categories
+		 ********************************************************/
+		case "webnnel":
+		  goWebnnel();
+		  break;
+		case "grid":
+		  if(tokens[1] == "mode") gridMode();
+		  break;
+		case "frame":
+		  if(tokens[1] == "mode") frameMode();
+		  break;
+		case "left":
+		  left();
+		  break;
+		case "right":
+		  right();
+		  break;
+		case "channel":
+      var index = tokens[1];
+      if(index < "7" && index > "0"){
+        content.document.location = channels[index];
+      }  
+      break;
+		case "back":
+		  goBack();
+		  break;
+		case "next":
+		  goNext();
+		  break;
+		case "scroll":
+      if(tokens[1] == "up"){
+        scrollUP();
+      }else if(tokens[1] == "down"){
+        scrollDown();
+      }  
+      break;
+    case "undo":
+      //Depend on previous action to know undo which action
+      if(preAction == "clean page"){
+        undo_cleanPage();
+      }else if(preAction == "remove image"){
+        undo_removeImage();
+      }
+  	  break;
+    case "homepage":
+      homepage();
+      break;
+  	  
+		/********************************************************
+		 * Content Access Categories
+		 ********************************************************/
+		case "clean":
+      if(tokens[1] == "page") cleanPage();
+      break;
+    case "click":
+      clickLink(tokens[1]);
+      break;
+    case "remove":
+      if(tokens[1] == "image") removeImage();
+      break;
+     
+		/********************************************************
+		 * Macros
+		 ********************************************************/
+    case "my":
+      if(tokens[1] == "email"){
+      	myEmail();
+      }else(tokens[1] == "news"){
+      	myNews();
+      }	
+      break;
+    case "logout":
+      logout();
+      break;
+    case "yahoo":
+      Yahoo();    
+      var command = document.getElementById("webnnel-toolbar-command");
+      command.focus();
+      break;
+    case "cnn": 
+      CNN();
+      break;
+      
+    /********************************************************
+		 * Audio Command Categories
+		 ********************************************************/
+    case "one":
+      if(tokens[1] == "clap") oneClap();
+      break;
+    case "two":
+      if(tokens[1] == "clap") twoClap();
+      break;
+
+   /********************************************************
+		* Default
+		********************************************************/
+		default:
+		  break;
   }
-  
 }
 
 /* CAI */
