@@ -44,14 +44,19 @@ var channels = [
  "http://www.youtube.com/"
 ];
 
+
+var preAction = "";
+
 function cmdParser(cmd){
 	
 	var tokens = cmd.split(" ");
 	
 	switch(tokens[0]){
+		
 		/********************************************************
 		 * Navigation Categories
 		 ********************************************************/
+		 	
 		case "webnnel":
 		  goWebnnel();
 		  break;
@@ -87,8 +92,8 @@ function cmdParser(cmd){
       }  
       break;
     case "undo":
-      //Depend on previous action to know undo which action
       if(preAction == "clean page"){
+      	//Depend on previous action to know undo which action
         undo_cleanPage();
       }else if(preAction == "remove image"){
         undo_removeImage();
@@ -97,27 +102,32 @@ function cmdParser(cmd){
     case "homepage":
       homepage();
       break;
-  	  
-		/********************************************************
+
+    /********************************************************
 		 * Content Access Categories
 		 ********************************************************/
-		case "clean":
-      if(tokens[1] == "page") cleanPage();
+  	case "clean":
+      if(tokens[1] == "page"){
+        cleanPage();
+      }  
       break;
     case "click":
       clickLink(tokens[1]);
       break;
     case "remove":
-      if(tokens[1] == "image") removeImage();
+      if(tokens[1] == "image"){
+        removeImage();
+      }
       break;
-     
-		/********************************************************
+   
+    /********************************************************
 		 * Macros
 		 ********************************************************/
+		 
     case "my":
       if(tokens[1] == "email"){
       	myEmail();
-      }else(tokens[1] == "news"){
+      }else if(tokens[1] == "news"){
       	myNews();
       }	
       break;
@@ -132,22 +142,36 @@ function cmdParser(cmd){
     case "cnn": 
       CNN();
       break;
-      
+    
     /********************************************************
 		 * Audio Command Categories
 		 ********************************************************/
+
     case "one":
-      if(tokens[1] == "clap") oneClap();
+      if(tokens[1] == "clap"){
+        oneClap();
+      }  
       break;
     case "two":
-      if(tokens[1] == "clap") twoClap();
+      if(tokens[1] == "clap"){
+        twoClap();
+      }  
       break;
-
+   
    /********************************************************
 		* Default
 		********************************************************/
-		default:
+
+ 		default:
 		  break;
+  }
+  
+  if(tokens[0] == "clean"){
+  	preAction = "clean page";
+  }else if(tokens[0] == "remove"){
+  	preAction = "remove image";
+  }else{
+    preAction = "";
   }
 }
 
@@ -204,7 +228,7 @@ function cleanPage(){
 }
 
 function undo_cleanPage(){
-  restore_cleanPage(document.documentElement);
+  restore_cleanPage(content.document.documentElement);
 }
 
 function removeImage(){
@@ -525,7 +549,7 @@ function scroll(direction){
 }
          
 function removeAllImages(){
-  var imgs=document.getElementsByTagName("img");
+  var imgs=content.document.getElementsByTagName("img");
 
   for(i=0;i<imgs.length;i++){
     imgs[i].style.display = "none";
@@ -533,7 +557,7 @@ function removeAllImages(){
 }
 
 function restore_removeAllImages(){
-  var imgs=document.getElementsByTagName("img");
+  var imgs=content.document.getElementsByTagName("img");
 
   for(i=0;i<imgs.length;i++){
     imgs[i].removeAttribute("style");
