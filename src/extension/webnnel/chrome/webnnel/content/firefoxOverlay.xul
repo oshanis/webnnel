@@ -24,6 +24,7 @@
   ]]>
   </script>
   
+  <!--<script src="utility.js"/>-->
   <script src="overlay.js"/>
   
   <!-- Create a hot key to enable/disable toolbar -->
@@ -37,7 +38,7 @@
       
       <!-- Create a toolbar for Webnnel buttons and sliders -->
       <toolbar
-      		 hidden = "false"
+      		 hidden = "true"
            orient = "horizontal"
            id = "ReadMagic-ToolBar"
            toolbarname = "Webnnel Toolbar"
