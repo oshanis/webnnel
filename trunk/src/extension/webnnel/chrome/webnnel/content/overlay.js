@@ -83,8 +83,10 @@ function cmdParser(cmd){
 		 * Navigation Categories
 		 ********************************************************/
 		 	
-		case "webnnel":
-		  goWebnnel();
+		case "web":
+		  if(tokens[1] == "channel"){
+		    goWebnnel();
+		  }  
 		  break;
 		case "grid":
 		  if(tokens[1] == "mode") gridMode();
