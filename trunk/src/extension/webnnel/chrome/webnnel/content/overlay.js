@@ -17,10 +17,16 @@ var webnnel = {
     
     
     textbox.addEventListener('keydown',function (evt) {
+    	/*if(evt.ctrlKey && evt.keyCode){
+    		window.alert("keydown is called");
+    		keyMapping(evt.keyCode);
+    	}*/
+    		
     	// keyCode 13 is the enter command
     	if(evt.keyCode == 13){
     	  var command = document.getElementById("webnnel-toolbar-command");
         cmdParser(command.value);
+        command.value = "";
         //command.focus();
       }
     }, true);    
@@ -43,6 +49,26 @@ var channels = [
  "http://www.technologyreview.com/",
  "http://www.youtube.com/"
 ];
+
+/*
+function keyMapping(keyCode){
+	window.alert("keyCode=" + keyCode);
+  switch(keyCode){
+    case 49:
+      window.alert("49");
+      goWebnnel();
+      window.alert("after goWebnnel() is called");
+      break;
+    case 50:
+      gridMode();
+      break;
+    case 51:
+      frameMode();
+      break;
+    default:
+      break;
+  }
+}*/
 
 
 var preAction = "";
@@ -240,7 +266,21 @@ function undo_removeImage(){
 }
 
 function clickLink(keyword){
-  click(find(keyword));  
+	
+  traverseNode(content.document.documentElement)
+  
+	click(keyword, function(){alert(keyword);});
+}
+
+function traverseNode(node){
+  if(node.nodeType=="1" && node.nodeName == "A"){
+    
+  }  
+  
+  var childNodes = node.childNodes;
+  for (var i = 0; i < childNodes.length; i++) {
+    traverse(childNodes[i]);
+  }
 }
 
 function oneClap(){
