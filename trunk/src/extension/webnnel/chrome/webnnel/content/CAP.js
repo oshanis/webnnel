@@ -38,15 +38,15 @@ function showChannelsInFrame(){
   tpt2.removeAttribute("style");
   
   var padding = content.document.getElementById("padding_space");
-  padding.setAttribute("style","line-height:180px"); 	
+  padding.setAttribute("style","line-height:150px"); 	
   
-  // Sweeze in snapshots
+  // Squeeze in snapshots
   
   for(i=fm_start,j=1;i<fm_length+1;i++,j++){
 	  var cid = "fm_" + i;
     var channel = content.document.getElementById(cid);
-    channel.border = "1";
-    channel.src = "chrome://webnnel/content/channels/ch_" + i + ".png";
+    channel.setAttribute("border","1");
+    channel.setAttribute("src", "chrome://webnnel/content/channels/ch_" + i + ".png");
     
     var title = content.document.getElementById(cid + "_title");
     title.innerHTML = i;
