@@ -30,11 +30,52 @@ function check_isLoadingStatus(){
     checkTimer = setInterval(function(){
       if(!webProgress.isLoadingDocument){
           tabBrowser.selectedBrowser.checking = "false";
+          
+          //Initialize Webnnel related functioins
+          attachNumTag();
+ 
           initWebnnelStatus();
+          
           clearInterval(checkTimer);
       }
     }, 1000);
   }      
+}
+
+function attachNumTag(){
+  var links = content.document.getElementsByTagName("A");
+
+  for(i=0;i<links.length;i++){
+    var link = links[i];
+  
+    var tag = content.document.createElement("SPAN");
+    tag.id = i;
+    tag.className = "numTag";
+    tag.innerHTML = i;
+    tag.setAttribute("style", "display:none;");
+  
+    link.appendChild(tag);
+  }
+}
+
+function showNumTag(){
+  var objs = content.document.getElementsByTagName("SPAN");
+  
+  for(i=0;i<objs.length;i++){
+  	if(objs[i].className == "numTag"){
+      objs[i].setAttribute("style","color:red;font-size:12px;font-weight:normal;max-width:20px;border:thin solid green;");
+    }  
+  }  
+}
+
+function hideNumTag(){
+  var objs = content.document.getElementsByTagName("SPAN");
+  for(i=0;i<objs.length;i++){
+  	if(objs[i].className == "numTag"){
+  		objs[i].removeAttribute("style");
+      objs[i].setAttribute("style","display:none;");
+    }  
+  }  
 }
 
 function initWebnnelStatus(){
@@ -180,6 +221,21 @@ function cmdParser(cmd){
     case "two":
       if(tokens[1] == "clap"){
         twoClap();
+      }  
+      break;
+    
+    /********************************************************
+		 * Utility Command Categories
+		 ********************************************************/
+
+    case "show":
+      if(tokens[1] == "tag"){
+        showNumTag();
+      }  
+      break;
+    case "hide":
+      if(tokens[1] == "tag"){
+        hideNumTag();
       }  
       break;
    
