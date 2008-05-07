@@ -3,8 +3,8 @@ var webnnel = {
 	
   onLoad: function(evnt) {
   	
-  	// If not for main window, then return.
-  	if(evnt.originalTarget != document) return;
+  	// If not for main window, then return. => This is used to avoid onLoad event is evoked multiple times
+  	// if(evnt.originalTarget != document) return;
   	
     // initialization code
     this.initialized = true;
@@ -12,24 +12,46 @@ var webnnel = {
     
     document.getElementById("contentAreaContextMenu")
             .addEventListener("popupshowing", function(e) { this.showContextMenu(e); }, false);
+
+    check_isLoadingStatus();
     
-    var textbox = document.getElementById("webnnel-toolbar-command");
-    
-    
-    textbox.addEventListener('keydown',function (evt) {    		
-    	// keyCode 13 is the enter command
-    	if(evt.keyCode == 13){
-    	  var command = document.getElementById("webnnel-toolbar-command");
-        cmdParser(command.value);
-        command.value = "";
-        //command.focus();
-      }
-    }, true);    
   }
 };
 
 window.addEventListener("load", function(e) { webnnel.onLoad(e); }, true);
 
+function check_isLoadingStatus(){
+  var tabBrowser = chromeWindow.document.getElementById('content');
+  
+  if(tabBrowser.selectedBrowser.checking != "true"){
+  	tabBrowser.selectedBrowser.checking = "true";
+  	
+    var webProgress = tabBrowser.selectedBrowser.webProgress;
+    checkTimer = setInterval(function(){
+      if(!webProgress.isLoadingDocument){
+          tabBrowser.selectedBrowser.checking = "false";
+          initWebnnelStatus();
+          clearInterval(checkTimer);
+      }
+    }, 1000);
+  }      
+}
+
+function initWebnnelStatus(){
+  var textbox = document.getElementById("webnnel-toolbar-command");
+  textbox.addEventListener('keydown',function (evt) {    		
+  	// keyCode 13 is the enter command
+  	if(evt.keyCode == 13){
+  	  var command = document.getElementById("webnnel-toolbar-command");
+      cmdParser(command.value);
+      command.value = "";
+      command.focus();
+    }
+  }, true);
+  
+  var command = document.getElementById("webnnel-toolbar-command");
+  command.focus();
+}
 
 function myLog(s) {
 	Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService).logStringMessage(s);
