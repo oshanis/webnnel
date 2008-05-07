@@ -16,12 +16,7 @@ var webnnel = {
     var textbox = document.getElementById("webnnel-toolbar-command");
     
     
-    textbox.addEventListener('keydown',function (evt) {
-    	/*if(evt.ctrlKey && evt.keyCode){
-    		window.alert("keydown is called");
-    		keyMapping(evt.keyCode);
-    	}*/
-    		
+    textbox.addEventListener('keydown',function (evt) {    		
     	// keyCode 13 is the enter command
     	if(evt.keyCode == 13){
     	  var command = document.getElementById("webnnel-toolbar-command");
@@ -49,27 +44,6 @@ var channels = [
  "http://www.technologyreview.com/",
  "http://www.youtube.com/"
 ];
-
-/*
-function keyMapping(keyCode){
-	window.alert("keyCode=" + keyCode);
-  switch(keyCode){
-    case 49:
-      window.alert("49");
-      goWebnnel();
-      window.alert("after goWebnnel() is called");
-      break;
-    case 50:
-      gridMode();
-      break;
-    case 51:
-      frameMode();
-      break;
-    default:
-      break;
-  }
-}*/
-
 
 var preAction = "";
 
@@ -140,7 +114,8 @@ function cmdParser(cmd){
       }  
       break;
     case "click":
-      clickLink(tokens[1]);
+      var term = new RegExp(tokens[1],"i");
+      clickLink(term);
       break;
     case "remove":
       if(tokens[1] == "image"){
@@ -189,7 +164,6 @@ function cmdParser(cmd){
    /********************************************************
 		* Default
 		********************************************************/
-
  		default:
 		  break;
   }
@@ -267,23 +241,7 @@ function undo_removeImage(){
 	restore_removeAllImages();
 }
 
-function clickLink(keyword){
-	
-  traverseNode(content.document.documentElement)
-  
-	click(keyword, function(){alert(keyword);});
-}
 
-function traverseNode(node){
-  if(node.nodeType=="1" && node.nodeName == "A"){
-    
-  }  
-  
-  var childNodes = node.childNodes;
-  for (var i = 0; i < childNodes.length; i++) {
-    traverse(childNodes[i]);
-  }
-}
 
 function oneClap(){
   goWebnnel();
@@ -300,7 +258,8 @@ function myEmail(){
 }
 
 function logout(){
-  click("Sign out");
+	var term = new RegExp("Sign out","i");
+	clickLink(term);
 }
 
 function myNews(){
@@ -609,10 +568,22 @@ function restore_removeAllImages(){
 
 /* Functions for CAIs */
 function toMyEmail(URL, username, pass){
-  go(URL);
-  enter("Username", username);
-  enter("Password", pass);
-  click("Sign in");
+  var window = getChromeWindowForNode(content.document.documentElement);
+  goToUrl(wn_getBrowser(window), URL, null);
+  
+  setTimeout(function(){
+    var usr = content.document.getElementById("Email");
+    highlightThenDo(usr, function(){usr.value = username;});
+  },1000); 
+  
+  setTimeout(function(){
+    var pas = content.document.getElementById("Passwd");
+    highlightThenDo(pas, function(){pas.value = pass;});
+  },2000);  
+  
+  setTimeout(function(){
+    clickButton(/Sign in/i);
+  },3000);
 }
   
 /*******************************************************************************
