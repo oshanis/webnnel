@@ -24,8 +24,11 @@
   ]]>
   </script>
   
-  <script src="overlay.js"/>
+  <script src="CAI.js"/>
+  <script src="CAP.js"/>
+  <script src="CMM.js"/>
   <script src="webnnel-utility.js"/>
+  <script src="overlay.js"/>
   
   <!-- Create a hot key to enable/disable toolbar -->
   <keyset id = "mainKeyset">
