@@ -24,14 +24,14 @@
   ]]>
   </script>
   
-  <!--<script src="utility.js"/>-->
   <script src="overlay.js"/>
+  <script src="webnnel-utility.js"/>
   
   <!-- Create a hot key to enable/disable toolbar -->
   <keyset id = "mainKeyset">
   	<key id = "webnnel-toggle"
   	  keycode = "VK_F2"
-  		oncommand = "var toolbar = document.getElementById('ReadMagic-ToolBar'); toolbar.hidden = !toolbar.hidden;"/>
+  		oncommand = "var toolbar = document.getElementById('Webnnel-ToolBar'); toolbar.hidden = !toolbar.hidden;"/>
   </keyset>
   
   <window id="main-window">
@@ -40,7 +40,7 @@
       <toolbar
       		 hidden = "false"
            orient = "horizontal"
-           id = "ReadMagic-ToolBar"
+           id = "Webnnel-ToolBar"
            toolbarname = "Webnnel Toolbar"
            insertafter = "navigator-toolbox"
            currentset = "webnnel-toolbar-commit">
