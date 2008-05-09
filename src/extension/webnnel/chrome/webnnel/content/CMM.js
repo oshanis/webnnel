@@ -341,3 +341,230 @@ function initializeChannel(){
     takeSnapshot(path, "ch_"+i+".png");
   }
 }
+
+/*******************************************************************************
+ * Function for Content Transformation                    
+ *******************************************************************************/
+
+function readMagic(evnt){
+  
+  var target = (evnt.target)? evnt.target : evnt.srcElement;
+  
+  // Avoid if target is a link
+  if(target.nodeName == 'A') return;
+  
+  var area = target.offsetWidth * target.offsetHeight;
+  var wholearea = content.document.documentElement.scrollWidth * content.document.documentElement.scrollHeight;
+  var ratio = area/wholearea;
+  
+  // The process area are too large, we assume user click the whole article
+  if(ratio > 0.2) return;
+  
+  if(target.status == "on"){
+    
+    target.status = "off";
+    target.innerHTML = target.orgInnerHTML;
+    target.setAttribute("style","background-color:");
+    
+  }else{
+  
+    var parentNode = target.parentNode;
+    
+    /* For target node, which parentNode's status is "on" */
+    if(parentNode.status && (parentNode.status == "on")){
+      parentNode.status = "off";
+      parentNode.innerHTML = parentNode.orgInnerHTML;
+      parentNode.setAttribute("style","background-color:");
+     
+      return;
+    }
+    
+    target.status = "on";
+  
+    var data = target.innerHTML;
+    var sentences = new Array();
+    var finalPara = "";
+    var fontSize = "100%";
+    
+    target.orgInnerHTML = data;
+
+    /* Doing data processing */
+    var pattern1 = /(\.|\?|\!)+("|')*(\s)+/g;    
+    var data1 = data.replace(pattern1,"$1$2$3__ICATCHU__");
+    
+    var pattern2 = /(Mr\.|Jr\.|Jan\.|Feb\.|Aug\.|Sep\.|Sept\.|Gen\.|Lt\.|Col\.|Fig\.|e\.g\.|\s[a-zA-Z]\.[a-zA-Z]\.|\s[A-Z]\.|\s\!)+(\s)+__ICATCHU__/g;
+    var data2 = data1.replace(pattern2, "$1$2 ");
+    
+    var deliminator = /__ICATCHU__/g;
+    sentences = data2.split(deliminator);
+    
+    if(sentences.length == 1){
+      finalPara = finalPara 
+                  + "<div style=\"font-size:" + fontSize 
+                  + ";padding-top:.1in;padding-left:.1in;padding-right:.1in;white-space:normal;\">" + sentences[0] 
+                  + "</div>";  
+      target.innerHTML = finalPara;
+      target.setAttribute("style","background-color:#F5F6AD");
+      return;
+    }
+    
+    for(i=0;i<sentences.length;i++){
+      
+      if(i == 0){
+        finalPara = finalPara 
+                    + "<div style=\"font-size:" + fontSize 
+                    + ";padding-top:.1in;padding-left:.1in;padding-right:.1in;white-space:normal;\">" + sentences[i] 
+                    + "</div><br>";  
+      }else if(i == (sentences.length-1)){
+        
+        // To avoid any space at the end of the sentence
+        if(sentences[i] != ""){
+          finalPara = finalPara 
+                      + "<div style=\"font-size:" + fontSize 
+                      + ";padding-left:.1in;padding-right:.1in;white-space:normal;\">" + sentences[i] 
+                      + "</div><br>"; 
+        }
+        
+      }else{
+        finalPara = finalPara 
+                    + "<div style=\"font-size:" + fontSize 
+                    + ";padding-left:.1in;padding-right:.1in;white-space:normal;\">" + sentences[i] 
+                    + "</div><br>";
+      }
+    }
+        
+    target.innerHTML = finalPara;
+    target.setAttribute("style","background-color:#F5F6AD");
+    
+  }  
+}
+
+var bgColorsJ = {
+	              0: "white",              // Original paragraph's background color
+                1: "",                   // Background color after click - Light Gray: rgb(222,223,226)
+                2: "rgb(245,246,173)",   // Background color after click - Light Yellow: rgb(245,246,173)
+                3: "#F5F6AD",   // Sentence background color after click = Light yellow
+                4: "" 
+               };
+               
+var sentenceShiftPercentage = 30; // The unit is pixel
+var sentenceShiftBumper = sentenceShiftPercentage/2;
+
+function jengaTrans(evnt){
+  
+  var target = (evnt.target)? evnt.target : evnt.srcElement;
+    
+  // Avoid if target is a link
+  if(target.nodeName == 'A') return;
+  
+  var area = target.offsetWidth * target.offsetHeight;
+  var wholearea = content.document.documentElement.scrollWidth * content.document.documentElement.scrollHeight;
+  var ratio = area/wholearea;
+  
+  // The process area are too large, we assume user click the whole article
+  if(ratio > 0.2) return;
+  
+  if(target.tagName == "P" && target.status == "on"){
+    
+    target.status = "off";
+    target.innerHTML = target.orgInnerHTML;
+    target.setAttribute("style","background-color:" + bgColorsJ[0]);
+    
+  }else if((target.tagName == "SPAN" || target.tagName == "DIV") && (target.parentNode.tagName == "P") && (target.parentNode.status == "on")){
+  	
+  	target = target.parentNode;
+  	
+  	target.status = "off";
+    target.innerHTML = target.orgInnerHTML;
+    target.setAttribute("style","background-color:" + bgColorsJ[0]);
+  	
+  }else if(target.tagName == "SPAN" || target.tagName == "DIV" || target.tagName == "P"){
+    
+    if(target.parentNode.tagName == "P"){
+      target = target.parentNode;
+    }
+    
+    target.status = "on";
+  
+    var data = target.innerHTML;
+    
+    var sentences = new Array();
+    var finalPara = "";
+    var firstSentenceFontSize = "100%";
+    var restSentenceFontSize = "100%";
+    var contentFontFamily = "Verdana";
+    
+    target.orgInnerHTML = target.innerHTML;
+
+    /* Doing data processing */
+    var pattern1 = /(\.|\?|\!)+("|')*(\s)+/g;    
+    var data1 = data.replace(pattern1,"$1$2$3__ICATCHU__");
+    
+    var pattern2 = /(Dr\.|Mr\.|Jr\.|Jan\.|Feb\.|Aug\.|Sep\.|Sept\.|Gen\.|Lt\.|Col\.|Fig\.|e\.g\.|\s[a-zA-Z]\.[a-zA-Z]\.|\s[A-Z]\.|\s\!)+(\s)+__ICATCHU__/g;
+    var data2 = data1.replace(pattern2, "$1$2 ");
+    
+    var deliminator = /__ICATCHU__/g;
+    sentences = data2.split(deliminator);
+    
+    if(sentences.length == 1){
+      finalPara = finalPara 
+                  + "<div style=\"display:inline; font-size:" + firstSentenceFontSize 
+                  + ";padding-bottom:2pt;padding-left:2pt;border-left:1px solid lightgray;\">" + sentences[0]
+                  + "</div>";
+                    
+      target.innerHTML = finalPara;
+      //target.setAttribute("style","background-color:" + bgColors[0]);
+
+      return;
+    }
+    
+    var lineNum = 0;
+    
+    for(i=0;i<sentences.length;i++){
+      
+      if(i == 0){
+      	lineNum += 1;
+      	
+        finalPara = finalPara 
+                    + "<div style=\"display:inline; position:relative; top: 0px; font-size:" + firstSentenceFontSize 
+                    + ";padding-bottom:2pt;padding-left:2pt"
+                    + ";background-color:" + bgColorsJ[3]
+                    + ";white-space:normal;\">" + sentences[i] 
+                    + "</div>";
+      }else if(i == (sentences.length-1)){
+        
+        // To avoid any space at the end of the sentence
+        if(sentences[i] != ""){
+        	lineNum += 1;
+        	
+          finalPara = finalPara 
+                      + "<span id=\"sec-click\" linenum=\"" + lineNum + "\"" 
+                      + " style=\"display:inline; position:relative; top:"+ i*sentenceShiftPercentage +"px; font-size:" + restSentenceFontSize 
+                      + ";padding-bottom:2pt;padding-left:2pt"
+                      + ";background-color:" + bgColorsJ[3]
+                      + ";white-space:normal;\">" + sentences[i] 
+                      + "</span>";
+        }
+        
+        finalPara = finalPara                      
+                    + "<div id=\"Bumper\" style=\"line-height:" + (lineNum*sentenceShiftPercentage-sentenceShiftBumper) + "px;\" lineNum=\"" + lineNum +"\">&nbsp;</div>"; 
+        
+      }else{
+      	
+      	lineNum += 1;
+      	
+        finalPara = finalPara 
+                    + "<span id=\"sec-click\" linenum=\"" + lineNum + "\"" 
+                    + " style=\"display:inline; position:relative; top:"+ i*sentenceShiftPercentage + "px; font-size:" + restSentenceFontSize 
+                    + ";padding-bottom:2pt;padding-left:2pt"
+                    + ";background-color:" + bgColorsJ[3]
+                    + ";white-space:normal;\">" + sentences[i] 
+                    + "</span>";
+      }
+    }
+        
+    target.innerHTML = finalPara;
+    target.setAttribute("style","border-bottom:1px solid lightgray; padding-left:.1in;padding-top:.1in;padding-right:.1in;background-color:" + bgColorsJ[1] + ";font-family:" + contentFontFamily);
+
+  }
+}
