@@ -41,6 +41,8 @@ function check_isLoadingStatus(){
   }      
 }
 
+var pageShowNumTag;
+
 function initWebnnelStatus(){
 	
 	//Initialize global variables
@@ -59,6 +61,8 @@ function initWebnnelStatus(){
   
   var command = document.getElementById("webnnel-toolbar-command");
   command.focus();
+  
+  pageShowNumTag = false;
 }
 
 function myLog(s) {
