@@ -280,7 +280,7 @@ function attachNumTag(){
     var tag = content.document.createElement("SPAN");
     tag.id = i;
     tag.className = "numTag";
-    tag.innerHTML = i;
+    tag.innerHTML = i+1;
     tag.setAttribute("style", "display:none;");
   
     link.appendChild(tag);
