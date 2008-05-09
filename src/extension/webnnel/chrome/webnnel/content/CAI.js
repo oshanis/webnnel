@@ -96,6 +96,35 @@ function CNN(){
 	content.document.location = "http://www.cnn.com/";
 }
 
+var curFormat = ""; //Global variable to record current applied method to the content
+
+function applyReadMagic(){
+	if(curFormat == "JF"){
+    content.document.removeEventListener("click", jengaTrans, false);
+	}
+	
+  content.document.addEventListener("click", readMagic, false);
+  curFormat = "SSF";
+}
+
+function applyJenga(){
+	if(curFormat == "SSF"){
+	  content.document.removeEventListener("click", readMagic, false);
+  }
+  
+  content.document.addEventListener("click", jengaTrans, false);
+  curFormat = "JF";
+}
+
+function removeFormat(){
+  if(curFormat == "SSF"){
+    content.document.removeEventListener("click", readMagic, false);
+  }else if(curFormat == "JF"){
+  	content.document.removeEventListener("click", jengaTrans, false);
+  }
+  curFormat = "";
+}
+
 /* Audio Command APIs */
 
 function homepage(){
