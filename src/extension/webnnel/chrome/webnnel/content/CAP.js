@@ -27,6 +27,9 @@ function showChannelsInGrid(){
 var fm_start = 1;
 var fm_length = 3;
 var fm_totalChannels = 6;
+var orgwidth = 330;
+var orgheight = 225;
+
 
 function showChannelsInFrame(){
 
@@ -55,22 +58,22 @@ function showChannelsInFrame(){
 	// Adjust the channel display
 	
 	var pre = content.document.getElementById("fm_1");
-	pre.width = pre.width * 0.6;
-	pre.height = pre.height * 0.6;
+	pre.width = orgwidth * 0.6;
+	pre.height = orgheight * 0.6;
 
   var pre_con = content.document.getElementById("fm_1_con");
 	pre_con.style.left = "100px";
 	
 	var middle = content.document.getElementById("fm_2");
-	middle.width = middle.width * 1.4;
-	middle.height = middle.height * 1.4;
+	middle.width = orgwidth * 1.4;
+	middle.height = orgheight * 1.4;
 	
 	var middle_con = content.document.getElementById("fm_2_con");
 	middle_con.style.left = "150px";
 	
 	var last = content.document.getElementById("fm_3");
-	last.width = last.width * 0.6;
-	last.height = last.height * 0.6;
+	last.width = orgwidth * 0.6;
+	last.height = orgheight * 0.6;
 	
 	var last_con = content.document.getElementById("fm_3_con");
 	last_con.style.left = "200px";
