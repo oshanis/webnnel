@@ -42,6 +42,10 @@ function check_isLoadingStatus(){
 }
 
 function initWebnnelStatus(){
+	
+	//Initialize global variables
+	curFormat = "";
+	
   var textbox = document.getElementById("webnnel-toolbar-command");
   textbox.addEventListener('keydown',function (evt) {    		
   	// keyCode 13 is the enter command
@@ -146,6 +150,8 @@ function cmdParser(cmd){
     case "remove":
       if(tokens[1] == "image"){
         removeImage();
+      }else if(tokens[1] == "format"){
+        removeFormat();
       }
       break;
    
@@ -170,6 +176,16 @@ function cmdParser(cmd){
       break;
     case "cnn": 
       CNN();
+      break;
+    case "SSF":
+      if(tokens[1] == "format"){
+        applyReadMagic();
+      }
+      break;
+    case "JF":
+      if(tokens[1] == "format"){
+        applyJenga();
+      }
       break;
     
     /********************************************************
