@@ -288,21 +288,27 @@ function attachNumTag(){
 }
 
 function showNumTag(){
-  var objs = content.document.getElementsByTagName("SPAN");
-  
-  for(i=0;i<objs.length;i++){
-  	if(objs[i].className == "numTag"){
-      objs[i].setAttribute("style","color:red;font-size:12px;font-weight:normal;max-width:20px;border:thin solid green;");
-    }  
-  }  
+	if(!pageShowNumTag){
+    var objs = content.document.getElementsByTagName("SPAN");
+    
+    for(i=0;i<objs.length;i++){
+    	if(objs[i].className == "numTag"){
+        objs[i].setAttribute("style","color:red;font-size:12px;font-weight:normal;max-width:20px;border:thin solid green;");
+      }  
+    }
+    pageShowNumTag = true;
+  }    
 }
 
 function hideNumTag(){
-  var objs = content.document.getElementsByTagName("SPAN");
-  for(i=0;i<objs.length;i++){
-  	if(objs[i].className == "numTag"){
-  		objs[i].removeAttribute("style");
-      objs[i].setAttribute("style","display:none;");
-    }  
-  }  
+	if(pageShowNumTag){
+    var objs = content.document.getElementsByTagName("SPAN");
+    for(i=0;i<objs.length;i++){
+    	if(objs[i].className == "numTag"){
+    		objs[i].removeAttribute("style");
+        objs[i].setAttribute("style","display:none;");
+      }  
+    }
+    pageShowNumTag = false;
+  }    
 }
