@@ -49,7 +49,7 @@ function initWebnnelStatus(){
 	curFormat = "";
 	
   var textbox = document.getElementById("webnnel-toolbar-command");
-  textbox.addEventListener('keydown',function (evt) {    		
+  textbox.addEventListener('keydown',function (evt) {
   	// keyCode 13 is the enter command
   	if(evt.keyCode == 13){
   	  var command = document.getElementById("webnnel-toolbar-command");
@@ -131,8 +131,10 @@ function cmdParser(cmd){
       if(preAction == "clean page"){
       	//Depend on previous action to know undo which action
         undo_cleanPage();
+        preAction = "";
       }else if(preAction == "remove image"){
         undo_removeImage();
+        preAction = "";
       }
   	  break;
     case "homepage":
@@ -144,6 +146,7 @@ function cmdParser(cmd){
 		 ********************************************************/
   	case "clean":
       if(tokens[1] == "page"){
+      	preAction = "clean page";
         cleanPage();
       }  
       break;
@@ -153,6 +156,7 @@ function cmdParser(cmd){
       break;
     case "remove":
       if(tokens[1] == "image"){
+      	preAction = "remove image";
         removeImage();
       }else if(tokens[1] == "format"){
         removeFormat();
@@ -227,14 +231,6 @@ function cmdParser(cmd){
 		********************************************************/
  		default:
 		  break;
-  }
-  
-  if(tokens[0] == "clean"){
-  	preAction = "clean page";
-  }else if(tokens[0] == "remove"){
-  	preAction = "remove image";
-  }else{
-    preAction = "";
   }
 }
 
