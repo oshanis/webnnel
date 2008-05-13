@@ -100,7 +100,10 @@ function cmdParser(cmd){
 		  if(tokens[1] == "mode") gridMode();
 		  break;
 		case "frame":
-		  if(tokens[1] == "mode") frameMode();
+		  if(tokens[1] == "mode"){
+		    frameMode();
+		    right();
+		  }
 		  break;
 		case "left":
 		  left();
@@ -139,6 +142,10 @@ function cmdParser(cmd){
   	  break;
     case "homepage":
       homepage();
+      break;
+    case "select":
+      var index = stack[1];
+      content.document.location = channels[index];
       break;
 
     /********************************************************

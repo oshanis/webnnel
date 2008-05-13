@@ -16,7 +16,7 @@ function showChannelsInGrid(){
   padding.setAttribute("style", "display:none");
 	
 	for(i=1;i<7;i++){
-	  var cid = "gm_" + i;
+	  var cid = "gm_ch_" + i;
     var channel = content.document.getElementById(cid);
     channel.border = "1";
     channel.src = "chrome://webnnel/content/channels/ch_" + i + ".png";
@@ -60,25 +60,25 @@ function showChannelsInFrame(){
 	// Adjust the channel display
 	
 	var pre = content.document.getElementById("fm_1");
-	pre.width = orgwidth * 0.6;
-	pre.height = orgheight * 0.6;
+	pre.width = orgwidth * 0.4;
+	pre.height = orgheight * 0.4;
 
   var pre_con = content.document.getElementById("fm_1_con");
-	pre_con.style.left = "100px";
+	pre_con.style.left = "80px";
 	
 	var middle = content.document.getElementById("fm_2");
-	middle.width = orgwidth * 1.4;
-	middle.height = orgheight * 1.4;
+	middle.width = orgwidth * 1.2;
+	middle.height = orgheight * 1.2;
 	
 	var middle_con = content.document.getElementById("fm_2_con");
-	middle_con.style.left = "150px";
+	middle_con.style.left = "130px";
 	
 	var last = content.document.getElementById("fm_3");
-	last.width = orgwidth * 0.6;
-	last.height = orgheight * 0.6;
+	last.width = orgwidth * 0.4;
+	last.height = orgheight * 0.4;
 	
 	var last_con = content.document.getElementById("fm_3_con");
-	last_con.style.left = "200px";
+	last_con.style.left = "180px";
 	
 }
 
