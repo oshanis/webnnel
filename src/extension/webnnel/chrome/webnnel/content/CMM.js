@@ -335,9 +335,14 @@ function deleteChannel(ID){
 }
 
 function initializeChannel(){
-	var path = "C:\\Projects\\webnnel\\src\\channels\\";
+	//var path = "C:\\Projects\\webnnel\\src\\channels\\";
+  var path = "chrome://webnnel//content//channels//";
+  var window = getChromeWindowForNode(content.document.documentElement);
+  
   for(i=1; i<channels.length;i++){
-    go(channels[i]);
+    //go(channels[i]);
+    goToUrl(wn_getBrowser(window), channels[i], null);
+  
     takeSnapshot(path, "ch_"+i+".png");
   }
 }
